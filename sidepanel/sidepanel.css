@@ -1,0 +1,78 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: #424242;
+    background-color: #ECEFF7;
+}
+
+div {
+    color: inherit;
+    background-color: inherit;
+}
+
+hr {
+    border: none;
+    margin: 1px;
+    height: 1px;
+    background-color: inherit;
+    filter: invert(8%);
+}
+
+input[type="radio"]:checked+label {
+    filter: invert(14%);
+}
+
+label {
+    display: flex;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 14px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: 2px;
+    background-color: inherit;
+}
+
+label:hover {
+    filter: invert(8%);
+}
+
+textarea {
+    display: block;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    resize: none;
+    font-family: inherit;
+    color: inherit;
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    scrollbar-width: thin;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: inherit;
+}
+
+.content {
+    flex: 1;
+}
+
+.header [type=radio] {
+    display: none;
+}
+
+.header {
+    margin: 8px;
+}
