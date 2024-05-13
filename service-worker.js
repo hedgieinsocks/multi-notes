@@ -1,9 +1,4 @@
-const options = {
-    sendToTop: false,
-    appendUrl: false,
-    addEmptyLine: false,
-    noteNum: 7
-}
+import { options } from "./util.js";
 
 chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
 

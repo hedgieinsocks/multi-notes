@@ -1,14 +1,4 @@
-const options = {
-    noteNum: 7,
-    fontSize: 14,
-    textColor: "#424242",
-    noteColor: "#ECEFF7",
-    scrollToBottom: false,
-    sendToTop: false,
-    appendUrl: false,
-    addEmptyLine: false,
-    softWrap: true
-}
+import { options } from '../util.js';
 
 const header = document.getElementById("header");
 const content = document.getElementById("content");
@@ -67,6 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.backgroundColor = items.noteColor;
         content.style.fontSize = items.fontSize + "px";
         content.style.whiteSpace = items.softWrap ? "pre-wrap" : "pre";
+        header.dir = items.rtlDir ? "rtl" : "ltr";
+        content.dir = items.rtlDir ? "rtl" : "ltr";
+        content.spellcheck = items.spellCheck;
         refreshNotes(parseInt(items.noteNum));
     });
 });
@@ -102,6 +95,11 @@ chrome.storage.onChanged.addListener((items) => {
         content.style.fontSize = items.fontSize.newValue + "px";
     } else if (items.softWrap) {
         content.style.whiteSpace = items.softWrap.newValue ? "pre-wrap" : "pre";
+    } else if (items.rtlDir) {
+        header.dir = items.rtlDir.newValue ? "rtl" : "ltr";
+        content.dir = items.rtlDir.newValue ? "rtl" : "ltr";
+    } else if (items.spellCheck) {
+        content.spellcheck = items.spellCheck.newValue;
     } else if (items.noteNum) {
         refreshNotes(parseInt(items.noteNum.newValue));
     }

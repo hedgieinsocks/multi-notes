@@ -1,14 +1,4 @@
-const options = {
-    noteNum: 7,
-    fontSize: 14,
-    textColor: "#424242",
-    noteColor: "#ECEFF7",
-    scrollToBottom: false,
-    sendToTop: false,
-    appendUrl: false,
-    addEmptyLine: false,
-    softWrap: true
-}
+import { options } from '../util.js';
 
 const populateSelectOptions = () => {
     document.querySelectorAll("select").forEach((select) => {
@@ -36,7 +26,7 @@ const restoreOptions = () => {
 }
 
 const updateOption = (option) => {
-    document.getElementById(option.id).addEventListener("change", () => {
+    option.addEventListener("change", () => {
         if (option.type === "checkbox") {
             chrome.storage.local.set({
                 [option.id]: option.checked
