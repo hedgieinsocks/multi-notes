@@ -45,8 +45,8 @@ const getContent = (id, event) => {
         if (event === "send") {
             content.scrollTop = items.sendToTop ? 0 : content.scrollHeight;
         } else {
+            if (event === "select") content.focus({ preventScroll: true });
             if (items.scrollToBottom) content.scrollTop = content.scrollHeight;
-            if (event === "select") content.focus();
         }
     });
 }

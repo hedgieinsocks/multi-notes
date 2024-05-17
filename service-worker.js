@@ -54,9 +54,8 @@ chrome.contextMenus.onClicked.addListener((data) => {
         chrome.storage.local.set({
             [menuItemId]: newNote
         });
-    });
-
-    chrome.runtime.sendMessage({ refresh: [menuItemId] }, () => {
-        if (chrome.runtime.lastError) return;
+        chrome.runtime.sendMessage({ refresh: [menuItemId] }, () => {
+            if (chrome.runtime.lastError) return;
+        });
     });
 });
