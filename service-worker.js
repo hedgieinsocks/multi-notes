@@ -4,22 +4,20 @@ browser.action.onClicked.addListener(() => {
     browser.sidebarAction.toggle();
 });
 
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.menus.create({
-        title: "Send to Multi Notes",
-        contexts: ["selection"],
-        id: "parent"
-    });
-    chrome.storage.local.get(options, (items) => {
-        for (let i = 1; i <= parseInt(items.noteNum); i++) {
-            chrome.menus.create({
-                title: i.toString(),
-                contexts: ["selection"],
-                parentId: "parent",
-                id: "note" + i
-            });
-        }
-    });
+chrome.menus.create({
+    title: "Send to Multi Notes",
+    contexts: ["selection"],
+    id: "parent"
+});
+chrome.storage.local.get(options, (items) => {
+    for (let i = 1; i <= parseInt(items.noteNum); i++) {
+        chrome.menus.create({
+            title: i.toString(),
+            contexts: ["selection"],
+            parentId: "parent",
+            id: "note" + i
+        });
+    }
 });
 
 chrome.storage.onChanged.addListener((data) => {

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Multi Notes",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Keep multiple plaintext notes in the sidepanel.",
   "author": "arthem.babij@gmail.com",
   "icons": {
@@ -19,7 +19,9 @@
     "default_icon": "icons/icon16.png"
   },
   "background": {
-    "scripts": ["service-worker.js"],
+    "scripts": [
+      "service-worker.js"
+    ],
     "type": "module"
   },
   "options_ui": {
@@ -32,6 +34,14 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "multi-notes@hedgie.tech"
+    }
+  },
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Shift+Alt+M"
+      },
+      "description": "Show Multi Notes"
     }
   }
 }
