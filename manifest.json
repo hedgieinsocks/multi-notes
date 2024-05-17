@@ -13,20 +13,25 @@
   "action": {
     "default_title": "Multi Notes"
   },
-  "side_panel": {
-    "default_path": "sidepanel/sidepanel.html"
+  "sidebar_action": {
+    "default_title": "Multi Notes",
+    "default_panel": "sidepanel/sidepanel.html",
+    "default_icon": "icons/icon16.png"
   },
   "background": {
-    "service_worker": "service-worker.js",
+    "scripts": ["service-worker.js"],
     "type": "module"
   },
   "options_ui": {
-    "page": "options/options.html",
-    "open_in_tab": false
+    "page": "options/options.html"
   },
   "permissions": [
-    "sidePanel",
     "storage",
-    "contextMenus"
-  ]
+    "menus"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "multi-notes@hedgie.tech"
+    }
+  }
 }

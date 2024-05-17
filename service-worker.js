@@ -1,16 +1,18 @@
 import { options } from "./util.js";
 
-chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
+browser.action.onClicked.addListener(() => {
+    browser.sidebarAction.toggle();
+});
 
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.contextMenus.create({
+    chrome.menus.create({
         title: "Send to Multi Notes",
         contexts: ["selection"],
         id: "parent"
     });
     chrome.storage.local.get(options, (items) => {
         for (let i = 1; i <= parseInt(items.noteNum); i++) {
-            chrome.contextMenus.create({
+            chrome.menus.create({
                 title: i.toString(),
                 contexts: ["selection"],
                 parentId: "parent",
@@ -27,7 +29,7 @@ chrome.storage.onChanged.addListener((data) => {
 
     if (newValue > oldValue) {
         for (let i = oldValue + 1; i <= newValue; i++) {
-            chrome.contextMenus.create({
+            chrome.menus.create({
                 title: i.toString(),
                 contexts: ["selection"],
                 parentId: "parent",
@@ -36,12 +38,12 @@ chrome.storage.onChanged.addListener((data) => {
         }
     } else if (newValue < oldValue) {
         for (let i = newValue + 1; i <= oldValue; i++) {
-            chrome.contextMenus.remove("note" + i);
+            chrome.menus.remove("note" + i);
         }
     }
 });
 
-chrome.contextMenus.onClicked.addListener((data) => {
+chrome.menus.onClicked.addListener((data) => {
     let menuItemId = data.menuItemId;
     let pageUrl = data.pageUrl;
     let selectionText = data.selectionText;

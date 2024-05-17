@@ -6,6 +6,7 @@ html {
     height: 100%;
     color: #424242;
     background-color: #ECEFF7;
+    font-family: sans-serif;
 }
 
 div {
@@ -63,6 +64,7 @@ textarea {
     flex-direction: column;
     height: 100%;
     background-color: inherit;
+    overflow: hidden;
 }
 
 .content {
