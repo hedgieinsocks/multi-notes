@@ -38,6 +38,7 @@ label {
     height: 36px;
     margin: 2px;
     background-color: inherit;
+    cursor: pointer;
 }
 
 label:hover {
