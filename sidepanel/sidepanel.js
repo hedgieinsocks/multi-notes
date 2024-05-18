@@ -22,7 +22,6 @@ const addNote = (num) => {
 }
 
 const refreshNotes = (num) => {
-    getContent("note1", "open");
     [...document.getElementsByClassName("tab")].forEach((div) => {
         let divNum = parseInt(div.id.match(/(\d+)/)[0]);
         if (divNum > num) {
