@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.storage.local.get(options, (items) => {
         document.body.style.color = items.textColor;
         document.body.style.backgroundColor = items.noteColor;
+        content.style.padding = items.notePadding + "px";
         content.style.fontSize = items.fontSize + "px";
         content.style.whiteSpace = items.softWrap ? "pre-wrap" : "pre";
         header.dir = items.rtlDir ? "rtl" : "ltr";
@@ -90,6 +91,8 @@ chrome.storage.onChanged.addListener((items) => {
         document.body.style.color = items.textColor.newValue;
     } else if (items.noteColor) {
         document.body.style.backgroundColor = items.noteColor.newValue;
+    } else if (items.notePadding) {
+        content.style.padding = items.notePadding.newValue + "px";
     } else if (items.fontSize) {
         content.style.fontSize = items.fontSize.newValue + "px";
     } else if (items.softWrap) {

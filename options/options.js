@@ -2,7 +2,7 @@ import { options } from '../util.js';
 
 const populateSelectOptions = () => {
     document.querySelectorAll("select").forEach((select) => {
-        for (var i = 1; i <= 100; i++) {
+        for (var i = 1; i <= 99; i++) {
             let option = document.createElement("option");
             option.value = i;
             option.textContent = i;
