@@ -5,7 +5,12 @@ div {
     font-family: sans-serif;
 }
 
-select {
+select,
+button {
     width: 64px;
     height: 30px;
+}
+
+input[type="file"] {
+    display: none;
 }
