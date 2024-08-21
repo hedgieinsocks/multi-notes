@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Multi Notes",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Keep multiple plaintext notes in the sidepanel.",
   "author": "arthem.babij@gmail.com",
   "icons": {
@@ -24,9 +24,5 @@
     "page": "options/options.html",
     "open_in_tab": false
   },
-  "permissions": [
-    "sidePanel",
-    "storage",
-    "contextMenus"
-  ]
+  "permissions": ["sidePanel", "storage", "contextMenus"]
 }
